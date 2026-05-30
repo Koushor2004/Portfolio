@@ -1,0 +1,68 @@
+.resume {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+.resume-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.resume-text {
+  font-size: 0.95rem;
+  color: var(--text2);
+  line-height: 1.7;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+.resume-note {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text3);
+  padding: 0.75rem 1rem;
+  border-left: 2px solid var(--accent);
+  background: var(--accent-dim);
+}
+.resume-note code {
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+.resume-card {
+  border: 1px solid var(--border2);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: flex-start;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+.resume-card::after {
+  content: 'PDF';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-family: var(--font-display);
+  font-size: 5rem;
+  color: var(--border);
+  pointer-events: none;
+  letter-spacing: 0.05em;
+}
+.resume-icon { color: var(--accent); }
+.resume-file-info { display: flex; flex-direction: column; gap: 0.2rem; }
+.resume-filename {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text);
+}
+.resume-filemeta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text3);
+}
+.resume-download-btn { align-self: stretch; justify-content: center; }
+
+@media (max-width: 768px) {
+  .resume-inner { grid-template-columns: 1fr; gap: 3rem; }
+}
