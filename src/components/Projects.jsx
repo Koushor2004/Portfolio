@@ -36,10 +36,6 @@ export default function Projects() {
             <div className="project-card" key={i}>
               <div className="project-card-top">
                 <span className="project-year">{p.year}</span>
-                <div className="project-stars">
-                  <StarIcon />
-                  <span>{p.stars.toLocaleString()}</span>
-                </div>
               </div>
               <h3 className="project-title">{p.title}</h3>
               <p className="project-desc">{p.description}</p>

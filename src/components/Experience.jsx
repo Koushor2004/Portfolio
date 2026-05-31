@@ -30,11 +30,12 @@ export default function Experience() {
                   <span className="exp-period">{e.period}</span>
                 </div>
                 <p className="exp-desc">{e.description}</p>
-                <div className="exp-tags">
+                {/* Will add later */}
+                {/* <div className="exp-tags">
                   {e.tags.map(t => (
                     <span key={t} className="tag">{t}</span>
                   ))}
-                </div>
+                </div> */}
               </div>
             </div>
           ))}

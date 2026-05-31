@@ -11,10 +11,13 @@ export function AboutPanel() {
       <div className="about-body">
         <p className="about-lead">{personal.bio}</p>
         <p className="about-text">
-          I'm a developer based in {personal.location}, passionate about crafting clean, efficient, and beautifully designed digital experiences. I thrive at the intersection of engineering and design, building things that not only work great but also look exceptional.
+          I am a computer science student with strong knowledge of Data Structures and Algorithms, and Web Development.
+          Proficient in C, Java, Python, and JavaScript with experience building full-stack applications. Developed AI-based
+          projects and actively participated in competitive programming and hackathons. Interested in building scalable
+          software and intelligent systems.
         </p>
         <p className="about-text">
-          When I'm not coding, I'm exploring new technologies, contributing to open-source projects, or writing about design and development on my blog.
+          When I'm not coding, I'm exploring new technologies and improving my problem solving ability.
         </p>
       </div>
       <div className="about-info">

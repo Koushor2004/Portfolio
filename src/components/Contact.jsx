@@ -10,7 +10,7 @@ export default function Contact() {
 
   const handleSubmit = e => {
     e.preventDefault()
-    // Opens default mail client with prefilled body
+
     const subject = encodeURIComponent(`Message from ${form.name}`)
     const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`)
     window.location.href = `mailto:${personal.email}?subject=${subject}&body=${body}`
@@ -26,6 +26,9 @@ export default function Contact() {
             <h2 className="section-title">GET IN <span>TOUCH</span></h2>
             <p className="contact-text">
               Have a project in mind, a question, or just want to say hello? Drop me a message — I typically respond within 24 hours.
+            </p>
+            <p className="contact-text">
+              Select a mail service like Gmail or Outlook to send the mail
             </p>
             <div className="contact-links">
               <a href={`mailto:${personal.email}`} className="contact-link-item">

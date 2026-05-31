@@ -12,9 +12,6 @@ export default function Resume() {
             <p className="resume-text">
               Get a copy of my full resume — includes detailed experience, education, certifications, and a complete skill overview.
             </p>
-            <p className="resume-note">
-              Place your <code>resume.pdf</code> in the <code>/public/</code> folder to enable the download.
-            </p>
           </div>
           <div className="resume-right">
             <div className="resume-card">
@@ -29,7 +26,7 @@ export default function Resume() {
               </div>
               <div className="resume-file-info">
                 <span className="resume-filename">resume.pdf</span>
-                <span className="resume-filemeta">PDF Document · Updated 2024</span>
+                <span className="resume-filemeta">PDF Document · Updated 2026</span>
               </div>
               <a
                 href={personal.resumeLink}
