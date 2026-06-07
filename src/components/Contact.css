@@ -51,7 +51,7 @@
 }
 .form-input:focus { border-color: var(--accent); }
 .form-input::placeholder { color: var(--text3); }
-.form-textarea { min-height: 120px; }
+.form-textarea { min-height: 7.5rem; }
 .contact-submit { width: 100%; justify-content: center; margin-top: 0.25rem; }
 
 /* Success */
@@ -64,10 +64,10 @@
   gap: 1rem;
   padding: 3rem;
   border: 1px solid var(--border);
-  min-height: 300px;
+  min-height: 18.75rem;
 }
 .contact-success h3 { font-size: 1.5rem; color: var(--text); }
-.contact-success p { font-size: 0.9rem; color: var(--text2); max-width: 300px; }
+.contact-success p { font-size: 0.9rem; color: var(--text2); max-width: 18.75rem; }
 
 @media (max-width: 768px) {
   .contact-grid { grid-template-columns: 1fr; gap: 3rem; }

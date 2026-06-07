@@ -41,8 +41,8 @@
 .resume-card::after {
   content: 'PDF';
   position: absolute;
-  top: -10px;
-  right: -10px;
+  top: -0.625rem;
+  right: -0.625rem;
   font-family: var(--font-display);
   font-size: 5rem;
   color: var(--border);
