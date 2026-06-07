@@ -35,25 +35,42 @@ export const skills = [
   { name: "MySQL", level: 90, category: "Database" },
   { name: "Tailwind CSS", level: 80, category: "Frontend" },
   { name: "Typescript", level: 80, category: "Backend" },
+  { name: "OOPs", level: 95, category: "Coursework" },
+  { name: "DBMS", level: 95, category: "Coursework" },
+  { name: "Operating System", level: 90, category: "Coursework" },
+  { name: "DSA", level: 90, category: "Coursework" },
+  { name: "Computer Network", level: 90, category: "Coursework" }
+
+
 ];
 
 export const projects = [
   {
-    year: "2026",
+    year: "2025",
     title: "Mood based song recommendation system",
     description:
       "An AI powerd application which detects the mood of the user from users face image and recommends songs based on the mood",
     stars: 4305,
     tags: ["Vite", "Express", "Supabase"],
-    repoLink: "https://github.com/yourhandle/project",
-    demoLink: "https://demo.example.com",
+    repoLink: "https://github.com/Koushor2004/Aura-sync",
+    demoLink: null,
+  },
+  {
+    year: "2026",
+    title: "Smart Leeds Dashboard",
+    description:
+      "A dashboard for monitoring number of leads generated from different sources , managing them in two differnet roles(Admin and User)",
+    stars: 4305,
+    tags: ["React", "Express", "MongoDB", "Node"],
+    repoLink: "https://github.com/Koushor2004/Smart-Leads-DashBoard",
+    demoLink: null,
   },
   {
     year: "2025",
     title: "Library Management System",
     description:
       "A libraray managemnet system using java only, which helps to organize users, books based on tags like name, author, avalibility, also helps to determine due dates and total fines. ",
-    stars: 139,
+
     tags: ["Java"],
     repoLink: "https://github.com/yourhandle/project2",
     demoLink: null,
