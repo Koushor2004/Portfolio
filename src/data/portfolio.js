@@ -52,7 +52,7 @@ export const projects = [
       "An AI powerd application which detects the mood of the user from users face image and recommends songs based on the mood",
     stars: 4305,
     tags: ["Vite", "Express", "Supabase"],
-    repoLink: "https://github.com/Koushor2004/Aura-sync",
+    repoLink: "https://github.com/Koushor2004/AuraSync",
     demoLink: null,
   },
   {
