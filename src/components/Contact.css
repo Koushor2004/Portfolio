@@ -53,6 +53,25 @@
 .form-input::placeholder { color: var(--text3); }
 .form-textarea { min-height: 7.5rem; }
 .contact-submit { width: 100%; justify-content: center; margin-top: 0.25rem; }
+.contact-submit:disabled { opacity: 0.7; cursor: not-allowed; }
+
+.form-error {
+  padding: 0.75rem 1rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+  font-size: 0.85rem;
+  border-radius: 4px;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
 /* Success */
 .contact-success {
@@ -72,3 +91,4 @@
 @media (max-width: 768px) {
   .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
 }
+

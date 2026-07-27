@@ -5,16 +5,43 @@ import './Contact.css'
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [status, setStatus] = useState(null)
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault()
+    setStatus('submitting')
+    setErrorMessage('')
 
-    const subject = encodeURIComponent(`Message from ${form.name}`)
-    const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`)
-    window.location.href = `mailto:${personal.email}?subject=${subject}&body=${body}`
-    setStatus('sent')
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${personal.email}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          _subject: `New Portfolio Message from ${form.name}`,
+          _captcha: 'false'
+        })
+      })
+
+      const data = await response.json()
+      if (response.ok && data.success !== 'false') {
+        setStatus('sent')
+      } else {
+        setStatus('error')
+        setErrorMessage(data.message || 'Something went wrong. Please try again.')
+      }
+    } catch (err) {
+      console.error(err)
+      setStatus('error')
+      setErrorMessage('Failed to send message. Please check your internet connection.')
+    }
   }
 
   return (
@@ -26,9 +53,6 @@ export default function Contact() {
             <h2 className="section-title">GET IN <span>TOUCH</span></h2>
             <p className="contact-text">
               Have a project in mind, a question, or just want to say hello? Drop me a message — I typically respond within 24 hours.
-            </p>
-            <p className="contact-text">
-              Select a mail service like Gmail or Outlook to send the mail
             </p>
             <div className="contact-links">
               <a href={`mailto:${personal.email}`} className="contact-link-item">
@@ -64,13 +88,18 @@ export default function Contact() {
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
                 <h3>Message Sent!</h3>
-                <p>Your mail client should have opened with a pre-filled message. Thanks for reaching out!</p>
+                <p>Your message was sent directly to my inbox. Thanks for reaching out!</p>
                 <button className="btn btn-outline" onClick={() => { setStatus(null); setForm({ name: '', email: '', message: '' }) }}>
                   Send Another
                 </button>
               </div>
             ) : (
               <form className="contact-form" onSubmit={handleSubmit}>
+                {status === 'error' && (
+                  <div className="form-error">
+                    {errorMessage}
+                  </div>
+                )}
                 <div className="form-group">
                   <label className="form-label">Name</label>
                   <input
@@ -80,6 +109,7 @@ export default function Contact() {
                     value={form.name}
                     onChange={handleChange}
                     placeholder="Your full name"
+                    disabled={status === 'submitting'}
                     required
                   />
                 </div>
@@ -92,6 +122,7 @@ export default function Contact() {
                     value={form.email}
                     onChange={handleChange}
                     placeholder="your@email.com"
+                    disabled={status === 'submitting'}
                     required
                   />
                 </div>
@@ -104,15 +135,27 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="Tell me about your project or inquiry..."
                     rows={5}
+                    disabled={status === 'submitting'}
                     required
                   />
                 </div>
-                <button type="submit" className="btn btn-primary contact-submit">
-                  Send Message
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <line x1="22" y1="2" x2="11" y2="13" />
-                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
-                  </svg>
+                <button type="submit" className="btn btn-primary contact-submit" disabled={status === 'submitting'}>
+                  {status === 'submitting' ? (
+                    <>
+                      Sending...
+                      <svg className="spinner" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <circle cx="12" cy="12" r="10" strokeDasharray="32" strokeDashoffset="10" />
+                      </svg>
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <line x1="22" y1="2" x2="11" y2="13" />
+                        <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                      </svg>
+                    </>
+                  )}
                 </button>
               </form>
             )}
@@ -122,3 +165,4 @@ export default function Contact() {
     </section>
   )
 }
+
